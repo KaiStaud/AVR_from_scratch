@@ -1,2 +1,0 @@
-Port of LCD has been change to DDRL on the ATMEGA 2560, if needed change it to a new desired Port on your MCU.
-Make sure that subfolder LCD has been added to paths (C/C++ Settings)
