@@ -1,1 +1,41 @@
 
+define F_CPU 8000000UL
+
+#include <stdlib.h>
+#include "kamavr.h"
+#include "conv_7seg.h"
+#include "util/delay.h"
+
+int main()
+{
+char key;
+int input[4] ={0,0,0,0};
+int ergebniss,i =0;
+
+init_7seg();
+
+while(1)
+{
+
+key = readkey();
+if(key != 0xFF)
+	{
+	i++;
+	dis_7seg(i,key);
+	input[i] =(int)key;	
+	}
+if(i==3)
+{
+/* Integer aus string bilden */
+ergebniss =input[1]*100+input[2]*10+input[3];
+ergebniss = ergebniss*2;
+dis_7seg_num(1,ergebniss);
+/* Zähler zurücksetzen*/
+ i=0;
+}
+
+
+
+}
+
+}
